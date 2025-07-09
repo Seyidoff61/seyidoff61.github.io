@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş / Qeydiyyat</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* login.html üçün əlavə CSS */
+        .auth-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .auth-container h2 {
+            margin-bottom: 25px;
+            color: #333;
+        }
+        .auth-container input[type="text"],
+        .auth-container input[type="password"],
+        .auth-container input[type="email"] {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .auth-container button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .auth-container button:hover {
+            background-color: #0056b3;
+        }
+        .toggle-form-link {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .toggle-form-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .toggle-form-link a:hover {
+            text-decoration: underline;
+        }
+        #register-form {
+            display: none; /* Qeydiyyat formu əvvəlcə gizli olacaq */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Oyun Mağazası</div>
+            <ul>
+                <li><a href="index.html">Əsas Səhifə</a></li>
+                <li><a href="login.html">Giriş / Qeydiyyat</a></li>
+                <li><a href="cart.html">Səbət</a></li>
+                <li><a href="contact.html">Əlaqə</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="auth-container">
+            <form id="login-form">
+                <h2>Giriş</h2>
+                <input type="text" id="login-username" placeholder="İstifadəçi Adı" required>
+                <input type="password" id="login-password" placeholder="Şifrə" required>
+                <button type="submit">Daxil Ol</button>
+                <p class="toggle-form-link">Hesabınız yoxdur? <a href="#" id="show-register">Qeydiyyatdan keçin</a></p>
+            </form>
+
+            <form id="register-form">
+                <h2>Qeydiyyat</h2>
+                <input type="text" id="register-username" placeholder="İstifadəçi Adı" required>
+                <input type="email" id="register-email" placeholder="E-poçt" required>
+                <input type="password" id="register-password" placeholder="Şifrə" required>
+                <input type="password" id="register-confirm-password" placeholder="Şifrəni Təsdiqlə" required>
+                <button type="submit">Qeydiyyatdan Keç</button>
+                <p class="toggle-form-link">Artıq hesabınız var? <a href="#" id="show-login">Daxil Olun</a></p>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Oyun Mağazası. Bütün hüquqlar qorunur.</p>
+    </footer>
+
+    <script src="auth.js"></script>
+</body>
+</html>

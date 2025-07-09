@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Əlaqə</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Əlaqə Səhifəsi üçün əlavə CSS */
+        .contact-container {
+            max-width: 650px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .contact-container h2 {
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-size: 2rem;
+        }
+        .contact-container p {
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        .contact-form label {
+            display: block;
+            text-align: left;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+            font-size: 1.05rem;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: calc(100% - 24px);
+            padding: 14px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1.05rem;
+        }
+        .contact-form textarea {
+            min-height: 120px;
+        }
+        .contact-form button {
+            background-color: var(--secondary-color);
+            color: var(--light-text);
+            border: none;
+            padding: 14px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.15rem;
+            width: 100%;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+        .contact-form button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Oyun Mağazası</div>
+            <ul>
+                <li><a href="index.html">Əsas Səhifə</a></li>
+                <li><a href="login.html">Giriş / Qeydiyyat</a></li>
+                <li><a href="cart.html">Səbət</a></li>
+                <li><a href="contact.html">Əlaqə</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="contact-container">
+            <h2>Bizimlə Əlaqə</h2>
+            <p>Hər hansı bir sualınız, təklifiniz və ya probleminiz varsa, zəhmət olmasa aşağıdakı formu doldurun və bizimlə əlaqə saxlayın.</p>
+            <form class="contact-form" id="contact-form">
+                <label for="name">Adınız:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">E-poçt ünvanınız:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="subject">Mövzu:</label>
+                <input type="text" id="subject" name="subject" required>
+
+                <label for="message">Mesajınız:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Mesaj Göndər</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Oyun Mağazası. Bütün hüquqlar qorunur.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Mesajınız uğurla göndərildi! (Bu sadəcə demo mesajıdır)');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

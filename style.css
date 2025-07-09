@@ -1,0 +1,552 @@
+/* General Body Styles */
+/* Yeni rəng dəyişənləri */
+:root {
+    --primary-color: #6a0dad;   /* Daha tünd bənövşəyi (əsas vurğu rəngi) */
+    --secondary-color: #00ffc8; /* Parlaq turkuaz (ikincil vurğu rəngi, məsələn, düymələr) */
+    --dark-background: #1a1a2e; /* Çox tünd fon rəngi */
+    --card-background: #2a2a4a; /* Kartlar və konteynerlər üçün bir az açıq tünd rəng */
+    --text-color-light: #e0e0e0; /* Açıq mətn rəngi (tünd fon üzərində) */
+    --text-color-dark: #b0b0b0;  /* Bir az tündləşmiş açıq mətn rəngi */
+    --border-color: rgba(255, 255, 255, 0.1); /* Elementlər üçün incə kənar rəngi */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Yeni şrift */
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-background); /* Bədənin fon rəngi */
+    color: var(--text-color-light); /* Ümumi mətn rəngi */
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Səhifəni yumşaq sürüşdürür */
+}
+
+/* Header and Navigation */
+header {
+    background-color: var(--dark-background); /* Başlığın fonu */
+    color: var(--text-color-light);
+    padding: 15px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Daha dərin kölgə */
+    border-bottom: 1px solid var(--border-color); /* Aşağı kənar */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav .logo {
+    font-size: 1.9rem; /* Loqo şrift ölçüsünü biraz artırın */
+    font-weight: 700; /* Daha qalın */
+    color: var(--secondary-color); /* Loqo üçün vurğu rəngi */
+    text-shadow: 0 0 10px rgba(0, 255, 200, 0.4); /* Yüngül neon effekti */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: var(--text-color-light);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, transform 0.2s ease; /* Keçid effekti */
+}
+
+nav ul li a:hover {
+    color: var(--secondary-color); /* Hover rəngi */
+    transform: translateY(-2px); /* Yüngül yuxarı qalxma */
+}
+
+/* Main Content Area */
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--dark-background); /* Main kontentin fon rəngi */
+    border-radius: 8px;
+    box-shadow: none; /* Main konteynerdə kölgəni silirik */
+}
+
+/* --- Yeni Loqo Bölməsi Üslubları --- */
+.logo-hero-section {
+    display: flex;
+    justify-content: center; /* Loqonu üfüqi mərkəzləşdirir */
+    align-items: center;     /* Loqonu şaquli mərkəzləşdirir */
+    padding: 60px 20px;      /* Biraz daha padding */
+    background-color: var(--card-background); /* Tünd fon */
+    min-height: 300px;       /* Minimum hündürlük artırıldı */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Daha dərin kölgə */
+    border-radius: 15px;     /* Daha yumşaq kənarlar */
+    margin-bottom: 40px;     /* Aşağıdan daha çox boşluq */
+    border: 1px solid var(--border-color); /* İncə kənar xətti */
+}
+
+.main-page-logo {
+    max-width: 85%; /* Loqonun səhifə genişliyini aşmamasını təmin edir (mobil üçün) */
+    height: auto;   /* Şəkilin nisbətlərini qoruyur */
+    display: block; /* Şəkli bir blok elementi edir */
+    max-height: 220px; /* Loqonun maksimum hündürlüyü artırıldı */
+    object-fit: contain; /* Şəklin konteynerə sığmasını təmin edir */
+}
+
+/* Daha böyük ekranlar üçün (tablet və desktop) */
+@media (min-width: 768px) {
+    .logo-hero-section {
+        min-height: 400px; /* Daha böyük ekranlarda daha yüksək */
+        padding: 60px 40px;
+    }
+    .main-page-logo {
+        max-width: 650px; /* Daha böyük ekranlarda loqonun maksimum eni */
+        max-height: 350px; /* Daha böyük ekranlarda loqonun maksimum hündürlüyü artırıldı */
+    }
+}
+/* --- Loqo Bölməsi Üslubları Sonu --- */
+
+
+/* Small Banners Section */
+.small-banners {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px; /* Aradakı boşluğu artırın */
+    margin-bottom: 40px;
+}
+
+.small-banner-item {
+    flex: 1;
+    min-width: 300px; /* Minimum eni biraz artırın */
+    background-color: var(--card-background); /* Tünd fon */
+    border-radius: 15px; /* Daha yumşaq kənarlar */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Dərin kölgə */
+    text-align: center;
+    padding: 20px; /* Padding artırın */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid var(--border-color); /* İncə kənar xətti */
+    text-decoration: none; /* Link üçün alt xətti sil */
+    color: var(--text-color-light); /* Mətn rəngi */
+}
+
+.small-banner-item:hover {
+    transform: translateY(-8px) scale(1.02); /* Daha dramatik effekt */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5); /* Daha böyük kölgə */
+    border-color: var(--secondary-color); /* Hoverdə kənar rəngi dəyişir */
+}
+
+.small-banner-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.small-banner-item h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+/* Info Banner Top */
+.info-banner-top {
+    text-align: center;
+    background-color: var(--card-background); /* Tünd fon */
+    padding: 30px; /* Padding artırın */
+    border-radius: 15px; /* Daha yumşaq kənarlar */
+    margin-bottom: 40px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Dərin kölgə */
+    border: 1px solid var(--border-color); /* İncə kənar xətti */
+}
+
+.info-banner-top h2 {
+    font-size: 2.2rem;
+    color: var(--secondary-color); /* Vurğu rəngi */
+    font-family: 'Oswald', sans-serif; /* Yeni şrift */
+    text-shadow: 0 0 15px rgba(0, 255, 200, 0.3); /* Yüngül neon effekti */
+}
+
+.info-banner-top p {
+    font-size: 1.1rem;
+    color: var(--text-color-dark); /* Mətn rəngi */
+    margin-bottom: 15px;
+}
+
+.info-banner-top a {
+    color: var(--primary-color); /* Link rəngi */
+    text-decoration: none;
+    font-weight: 600; /* Daha qalın */
+    display: inline-flex; /* For aligning image and text */
+    align-items: center;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.info-banner-top a:hover {
+    color: var(--secondary-color); /* Hover rəngi */
+}
+
+.info-banner-top a img {
+    margin-right: 8px;
+}
+
+
+/* Services Section */
+.services-section {
+    background-color: var(--card-background); /* Tünd fon */
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color); /* İncə kənar xətti */
+}
+
+.services-section p {
+    font-size: 1.1rem;
+    color: var(--text-color-dark);
+}
+
+/* Game Listing Section (Grid) */
+h1, h2 {
+    text-align: center;
+    color: var(--secondary-color); /* Başlıqlar üçün vurğu rəngi */
+    margin-bottom: 35px; /* Boşluğu artırın */
+    font-size: 2.5rem; /* Şrift ölçüsünü artırın */
+    font-family: 'Oswald', sans-serif; /* Yeni şrift */
+    text-shadow: 0 0 15px rgba(0, 255, 200, 0.3);
+}
+
+h2 {
+    margin-top: 40px; /* Add some space above the H2 */
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Minimum eni artırın */
+    gap: 35px; /* Boşluğu artırın */
+    padding: 20px 0;
+}
+
+.game-card {
+    background-color: var(--card-background); /* Tünd fon */
+    border-radius: 15px; /* Daha yumşaq kənarlar */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Dərin kölgə */
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--border-color); /* İncə kənar xətti */
+}
+
+.game-card:hover {
+    transform: translateY(-10px) scale(1.02); /* Yuxarı qalxır və böyüyür */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); /* Daha böyük kölgə */
+    border-color: var(--secondary-color); /* Hoverdə kənar rəngi dəyişir */
+}
+
+.game-card img {
+    width: 100%;
+    height: 200px; /* Şəkil hündürlüyünü artırın */
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color); /* Kənar xətti */
+}
+
+.game-card h3 {
+    font-size: 1.6rem;
+    margin: 15px 10px 5px;
+    color: var(--text-color-light); /* Mətn rəngi */
+    font-family: 'Oswald', sans-serif; /* Başlıqlar üçün yeni şrift */
+}
+
+.game-card .game-description {
+    font-size: 1rem;
+    color: var(--text-color-dark);
+    padding: 0 15px;
+    margin-bottom: 10px;
+    flex-grow: 1;
+}
+
+.game-card .game-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--secondary-color); /* Qiymət üçün vurğu rəngi */
+    margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 20px; /* Padding artırın */
+    margin-top: 50px; /* Daha çox boşluq */
+    background-color: var(--dark-background); /* Fon rəngi */
+    color: var(--text-color-light);
+    font-size: 0.95rem;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3); /* Kölgə */
+    border-top: 1px solid var(--border-color); /* Yuxarı kənar */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 15px;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    main {
+        padding: 15px;
+        margin: 15px auto;
+    }
+
+    h1, h2 {
+        font-size: 2rem;
+    }
+
+    .game-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+
+    .small-banner-item {
+        min-width: 100%;
+    }
+
+    .logo-hero-section {
+        min-height: 250px; /* Mobil üçün hündürlüyü tənzimləyin */
+        padding: 30px 15px;
+    }
+
+    .main-page-logo {
+        max-height: 150px; /* Mobil üçün loqo hündürlüyünü tənzimləyin */
+    }
+}
+
+/* Oyun Detalları Səhifəsi üçün əlavə CSS (game-detail.html) */
+/* Əmin ol ki, bu hissə game-detail.html-in <style> teqinin içindədir və ya style.css-ə əlavə edilib */
+.game-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+    background-color: var(--card-background); /* Tünd fon */
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    color: var(--text-color-light); /* Mətn rəngi */
+}
+.game-detail-container img {
+    max-width: 100%;
+    height: auto;
+    max-height: 450px; /* Şəkilin hündürlüyünü biraz artırın */
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+}
+.game-detail-content {
+    text-align: center;
+    width: 100%;
+}
+.game-detail-content h1 {
+    font-size: 2.8rem; /* Başlıq şrift ölçüsü */
+    margin-bottom: 15px;
+    color: var(--secondary-color); /* Vurğu rəngi */
+    font-family: 'Oswald', sans-serif;
+    text-shadow: 0 0 18px rgba(0, 255, 200, 0.4);
+}
+.game-detail-content p {
+    font-size: 1.1rem;
+    color: var(--text-color-dark);
+    margin-bottom: 10px;
+}
+.game-detail-content .price {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin: 20px 0;
+}
+.game-detail-content button {
+    background-color: var(--primary-color); /* Düymə rəngi */
+    color: var(--text-color-light);
+    border: none;
+    padding: 15px 35px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.game-detail-content button:hover {
+    background-color: var(--secondary-color); /* Hover rəngi */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Qiymət Seçimləri üçün */
+.price-options-wrapper {
+    margin: 25px 0;
+    text-align: left;
+    width: 100%;
+}
+.price-option-label {
+    display: block;
+    background-color: var(--dark-background); /* Tünd fon */
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid var(--border-color);
+    color: var(--text-color-light);
+}
+.price-option-label:hover {
+    background-color: #3a3a5e; /* Biraz açıq hover fonu */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-color);
+}
+.price-option-label input[type="radio"] {
+    margin-right: 12px;
+    accent-color: var(--secondary-color); /* Radio düyməsinin rəngini dəyişir */
+    transform: scale(1.3); /* Radio düyməsini böyüdür */
+}
+.price-option-label input[type="radio"]:checked + span {
+    font-weight: bold;
+    color: var(--secondary-color); /* Seçilmiş mətn rəngi */
+}
+
+@media (min-width: 768px) {
+    .game-detail-container {
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
+    }
+    .game-detail-container img {
+        width: 50%;
+        max-width: 500px; /* Daha böyük şəkil */
+        margin-right: 40px; /* Sağdan boşluq artırın */
+    }
+    .game-detail-content {
+        flex-grow: 1;
+        text-align: left;
+    }
+}
+/* Header və Nav üçün əsas stillər (Əgər mövcuddursa, onları uyğunlaşdırın) */
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex; /* Masaüstü görünüşündə yan-yana olsun */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffd700; /* Hover rəngini dəyişdirə bilərsiniz */
+}
+
+/* --- Hamburger Menyu Stilləri --- */
+
+.hamburger-menu-icon {
+    display: none; /* Masaüstü görünüşündə gizlət */
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    z-index: 1000; /* Menyunun üzərində olması üçün */
+}
+
+.hamburger-menu-icon .bar {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger ikonunun 'X' şəklində dəyişməsi */
+.hamburger-menu-icon.active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+.hamburger-menu-icon.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu-icon.active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* Mobil görünüş üçün responsive stillər */
+@media (max-width: 768px) {
+    .hamburger-menu-icon {
+        display: flex; /* Mobil görünüşdə göstər */
+    }
+
+    .nav-links {
+        /* Mobil görünüşdə menyu gizli və alt-alta olsun */
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        background-color: #444; /* Açılan menyunun fon rəngi */
+        position: absolute;
+        top: 60px; /* Header-in hündürlüyünə uyğunlaşdırın */
+        left: 0;
+        padding: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex; /* Aktiv olduqda göstər */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+}

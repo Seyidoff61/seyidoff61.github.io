@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oyun Detalları</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Oyun Detalları Səhifəsi üçün əlavə CSS */
+        .game-detail-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .game-detail-container img {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain; /* Şəklin tam görünməsini təmin edir */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .game-detail-content {
+            text-align: center;
+            width: 100%; /* Mobil görünüşdə tam genişlik */
+        }
+        .game-detail-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        .game-detail-content p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .game-detail-content .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin: 20px 0;
+        }
+        .game-detail-content button {
+            background-color: var(--secondary-color);
+            color: var(--light-text);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+        .game-detail-content button:hover {
+            background-color: #218838;
+        }
+
+        /* Qiymət Seçimləri üçün */
+        .price-options-wrapper {
+            margin: 20px 0;
+            text-align: left; /* Qiymət seçimlərini sola doğru düzəldir */
+            width: 100%;
+        }
+        .price-option-label {
+            display: block; /* Hər seçimi yeni sətirə salır */
+            background-color: #f0f0f0;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        .price-option-label:hover {
+            background-color: #e6e6e6;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .price-option-label input[type="radio"] {
+            margin-right: 10px;
+            accent-color: var(--primary-color); /* Radio düyməsinin rəngini dəyişir */
+            transform: scale(1.2); /* Radio düyməsini böyüdür */
+        }
+        .price-option-label input[type="radio"]:checked + span {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        @media (min-width: 768px) {
+            .game-detail-container {
+                flex-direction: row;
+                text-align: left;
+                align-items: flex-start;
+            }
+            .game-detail-container img {
+                width: 50%;
+                max-width: 450px;
+                margin-right: 30px;
+            }
+            .game-detail-content {
+                flex-grow: 1;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Oyun Mağazası</div>
+            <ul>
+                <li><a href="index.html">Əsas Səhifə</a></li>
+                <li><a href="login.html">Giriş / Qeydiyyat</a></li>
+                <li><a href="cart.html">Səbət</a></li>
+                <li><a href="contact.html">Əlaqə</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="game-detail" class="game-detail-container">
+            <p>Oyun məlumatları yüklənir...</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Oyun Mağazası. Bütün hüquqlar qorunur.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const gameId = parseInt(urlParams.get('id'));
+            const gameDetailContainer = document.getElementById('game-detail');
+
+            // OYUN MƏLUMATLARI - BURADA SCRIPT.JS FAYLINDAKİ games MASSIVİNİN EYNİSİ OLMALIDIR!
+            // Qeyd: Əgər bu məlumatlar başqa bir JavaScript faylında (məsələn, script.js) təyin olunubsa,
+            // onları burada təkrarlamaq əvəzinə, həmin faylı buraya daxil edə bilərsiniz.
+            // Yaxud bu massivi qlobal bir dəyişən olaraq təyin edib, hər yerdə istifadə edin.
+            const games = [
+                {
+                    id: 1,
+                    name: 'FREE FIRE DIAMOND',
+                    // Sizin kodunuzda 'image' iki dəfə təyin olunmuşdu, biri silindi.
+                    image: 'ff.png', // Əsas şəkil
+                    description: 'Free Fire üçün diamond paketi. Dərhal hesabınıza yükləyin!',
+                    image: 'qiymetff1.jpg', // Şəkili yoxlayın!
+                    // YENİ FREE FIRE QİYMƏTLƏRİ BURADADIR (script.js ilə eyni olmalıdır!)
+                    prices: [
+                        { quantity: 100, amount: 2.00 },
+                        { quantity: 220, amount: 4.00 },
+                        { quantity: 341, amount: 5.00 },
+                        { quantity: 572, amount: 8.00 },
+                        { quantity: 682, amount: 10.00 },
+                        { quantity: 913, amount: 13.00 },
+                        { quantity: 1166, amount: 16.00 },
+                        { quantity: 1507, amount: 21.00 },
+                        { quantity: 1738, amount: 25.00 },
+                        { quantity: 2079, amount: 29.00 },
+                        { quantity: 2398, amount: 32.00 },
+                        { quantity: 2970, amount: 40.00 },
+                        { quantity: 'Həftəlik 450', amount: 3.00 },
+                        { quantity: 'Aylıq 2600', amount: 11.00 }
+                    ]
+                },
+                {
+                    id: 2,
+                    name: 'PUBG MOBILE UC',
+                    // Sizin kodunuzda 'image' iki dəfə təyin olunmuşdu, biri silindi.
+                    image: 'pubg.jpg', // Əsas şəkil
+                    description: 'PUBG Mobile üçün UC (Unknown Cash) alın və oyununuzu təkmilləşdirin.',
+                    image:'pubg1.jpg', // Şəkili yoxlayın!
+                    prices: [
+                        { quantity: 63, amount: 2 },
+                        { quantity: 120, amount: 4 },
+                        { quantity: 240, amount: 7 }, // Nöqtə-vergül (,) əlavə edildi
+                        { quantity: 325, amount: 8 }, // Nöqtə-vergül (,) əlavə edildi
+                        { quantity: 385, amount: 10 },// Nöqtə-vergül (,) əlavə edildi
+                        { quantity: 445, amount: 12 },// Nöqtə-vergül (,) əlavə edildi
+                        { quantity: 660, amount: 16 },	// Nöqtə-vergül (,) əlavə edildi
+                        { quantity: 985, amount: 24 },
+                        { quantity: 1800, amount: 40 },
+                        { quantity: 2785, amount: 65 },
+	                    { quantity: 3970, amount: 82 },
+	                    { quantity: 8340, amount: 160 }
+                    ]
+                },
+                {
+                    id: 3,
+                    name: 'TIK TOK JETON',
+                    // Sizin kodunuzda 'image' iki dəfə təyin olunmuşdu, biri silindi.
+                    image: 'tt.jpg', // Əsas şəkil
+                    description: 'TikTok-da canlı yayımlarda hədiyyə göndərmək üçün jetonlar.',
+                    image: 'ttjeton1.jpg', // Şəkili yoxlayın!
+                    prices: [
+                        { quantity: 105, amount: 3 },
+                        { quantity: 215, amount: 5 },
+                        { quantity: 520, amount: 11 },
+                        {quantity: 720, amount: 15 },
+                        {quantity: 1000, amount: 20 },
+                        {quantity: 1500, amount: 30 },
+                    ]
+                },
+             ];
+               
+            const selectedGame = games.find(game => game.id === gameId);
+
+            if (selectedGame) {
+                let priceOptionsHtml = '';
+                selectedGame.prices.forEach((priceOption, index) => {
+                    const displayQuantity = typeof priceOption.quantity === 'string' ? priceOption.quantity : `${priceOption.quantity} ədəd`;
+                    priceOptionsHtml += `
+                        <label class="price-option-label">
+                            <input type="radio" name="priceOption" value="${index}" ${index === 0 ? 'checked' : ''}>
+                            <span>${displayQuantity} - ${priceOption.amount.toFixed(2)} AZN</span>
+                        </label>
+                    `;
+                });
+
+                gameDetailContainer.innerHTML = `
+                    <img src="${selectedGame.image}" alt="${selectedGame.name}">
+                    <div class="game-detail-content">
+                        <h1>${selectedGame.name}</h1>
+                        <p>${selectedGame.description}</p>
+                        <div class="price-options-wrapper">
+                            ${priceOptionsHtml}
+                        </div>
+                        <button id="add-to-cart-detail" data-id="${selectedGame.id}">Səbətə əlavə et</button>
+                    </div>
+                `;
+
+                document.getElementById('add-to-cart-detail').addEventListener('click', () => {
+                    const selectedRadio = document.querySelector('input[name="priceOption"]:checked');
+                    
+                    if (!selectedRadio) {
+                        alert("Zəhmət olmasa bir miqdar seçin.");
+                        return;
+                    }
+
+                    const selectedPriceOptionIndex = selectedRadio.value;
+                    const selectedPriceOption = selectedGame.prices[selectedPriceOptionIndex];
+
+                    if (selectedPriceOption) {
+                        const itemToAdd = {
+                            id: selectedGame.id,
+                            name: `${selectedGame.name} (${selectedPriceOption.quantity})`,
+                            image: selectedGame.image,
+                            price: selectedPriceOption.amount,
+                            quantity: 1 // Adətən "item" əlavə etdiyinizdə sayı 1 olur, əgər miqdar seçimi vahid miqdardırsa.
+                                        // Əgər selectedPriceOption.quantity birbaşa miqdardırsa, onu istifadə edin.
+                                        // Misal: quantity: typeof selectedPriceOption.quantity === 'number' ? selectedPriceOption.quantity : 1
+                        };
+
+                        if (typeof window.addToCart === 'function') {
+                            window.addToCart(itemToAdd);
+                        } else {
+                            alert("Səbətə əlavə etmə funksiyası yüklənməyib. Zəhmət olmasa səhifəni yeniləyin.");
+                        }
+                    } else {
+                        alert("Zəhmət olmasa bir miqdar seçin.");
+                    }
+                });
+
+            } else {
+                gameDetailContainer.innerHTML = '<p>Xidmət tapılmadı.</p>';
+            }
+        });
+    </script>
+    <script src="cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Admin Panel üçün əlavə CSS */
+        .admin-dashboard {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+        .admin-dashboard h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .order-list {
+            display: grid;
+            gap: 20px;
+        }
+        .order-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .order-item h3 {
+            margin: 0;
+            color: #007bff;
+        }
+        .order-item p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        .order-item .status {
+            font-weight: bold;
+            color: green;
+        }
+        .order-item .status.pending {
+            color: orange;
+        }
+        .order-item button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        .order-item button:hover {
+            background-color: #218838;
+        }
+        .order-item button.cancel {
+            background-color: #dc3545;
+        }
+        .order-item button.cancel:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Oyun Mağazası</div>
+            <ul>
+                <li><a href="index.html">Əsas Səhifə</a></li>
+                <li><a href="login.html">Giriş / Qeydiyyat</a></li>
+                <li><a href="cart.html">Səbət</a></li>
+                <li><a href="contact.html">Əlaqə</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="admin-dashboard">
+            <h2>Admin Paneli - Sifarişlərin İdarə Edilməsi</h2>
+            <div class="order-list">
+                <div class="order-item">
+                    <h3>Sifariş #001</h3>
+                    <p>Müştəri: Əli Vəliyev</p>
+                    <p>Məhsul: PUBG Mobile UC (1000 UC)</p>
+                    <p>Qiymət: 39.99 AZN</p>
+                    <p>Tarix: 2025-07-06</p>
+                    <p class="status pending">Status: Gözləmədə</p>
+                    <button>Təsdiqlə</button>
+                    <button class="cancel">Ləğv Et</button>
+                </div>
+
+                <div class="order-item">
+                    <h3>Sifariş #002</h3>
+                    <p>Müştəri: Leyla Həsənova</p>
+                    <p>Məhsul: FREE FIRE DIAMOND (500 Diamond)</p>
+                    <p>Qiymət: 29.99 AZN</p>
+                    <p>Tarix: 2025-07-05</p>
+                    <p class="status">Status: Təsdiqlənib</p>
+                    <button>Göndərildi Qeyd Et</button>
+                </div>
+
+                <div class="order-item">
+                    <h3>Sifariş #003</h3>
+                    <p>Müştəri: Murad Quliyev</p>
+                    <p>Məhsul: TIK TOK JETON (200 Jeton)</p>
+                    <p>Qiymət: 19.99 AZN</p>
+                    <p>Tarix: 2025-07-04</p>
+                    <p class="status">Status: Göndərilib</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Oyun Mağazası. Bütün hüquqlar qorunur.</p>
+    </footer>
+
+</body>
+</html>

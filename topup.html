@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balans Artır - Oyun Mağazası</title>
+    <link rel="stylesheet" href="style.css"> <style>
+        /* Topup səhifəsi üçün xüsusi CSS (əsas style.css-ə əlavə edə bilərsiniz) */
+        .topup-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .topup-container h1 {
+            color: #333;
+            margin-bottom: 25px;
+        }
+        .topup-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #555;
+        }
+        .topup-form input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 12px 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        .topup-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+        .topup-form button:hover {
+            background-color: #45a049;
+        }
+        #message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .message.success {
+            background-color: #e6ffe6;
+            color: #008000;
+            border: 1px solid #008000;
+        }
+        .message.error {
+            background-color: #ffe6e6;
+            color: #cc0000;
+            border: 1px solid #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Oyun Mağazası</div>
+            <ul>
+                <li><a href="index.html">Əsas Səhifə</a></li>
+                <li><a href="login.html">Giriş / Qeydiyyat</a></li>
+                <li><a href="cart.html">Səbət</a></li>
+                <li><a href="contact.html">Əlaqə</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="topup-container">
+            <h1>Balans Artır</h1>
+            <form id="topup-form" class="topup-form">
+                <label for="amount">Artırılacaq Məbləğ (AZN):</label>
+                <input type="number" id="amount" name="amount" min="1" step="0.01" required>
+                <button type="submit">Balansı Artır</button>
+            </form>
+            <div id="message" class="message"></div>
+            <p style="margin-top: 20px; font-size: 0.9em; color: #777;">
+                **Qeyd:** Bu səhifə sadəcə demo məqsədlidir. Real balans artırma funksionallığı üçün <br> server tərəfi proqramlaşdırma və ödəniş qapısı inteqrasiyası tələb olunur.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Oyun Mağazası. Bütün hüquqlar qorunur.</p>
+    </footer>
+
+    <script src="topup.js"></script> </body>
+</html>
