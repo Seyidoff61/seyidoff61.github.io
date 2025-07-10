@@ -3,82 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saytımız</title>
+    <title>Oyun Mağazası</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* index.html üçün əlavə CSS */
+        /* Oyunların listi üçün stil */
+        .games-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .game-item {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .game-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .game-item h3 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .game-item p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        /* ID daxil etmə sahəsi üçün stil */
+        .game-id-input {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        /* Ümumi düymə stili (Al və WhatsApp) */
+        .buy-button, .whatsapp-button {
+            background-color: #28a745; /* Yaşıl */
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%; /* Tam genişlik */
+            box-sizing: border-box; /* Padding və border genişliyə daxil edilsin */
+        }
+
+        .buy-button:hover, .whatsapp-button:hover {
+            background-color: #218838; /* Tünd yaşıl */
+        }
+
+        /* WhatsApp linki üçün xüsusi stil (əgər lazımdırsa) */
+        .whatsapp-link {
+            text-decoration: none; /* Linkin alt xəttini götürür */
+        }
+    </style>
 </head>
 <body>
     <header>
-    <nav>
-        <div class="logo">Oyun Mağazası</div>
-        <div class="hamburger-menu-icon" id="hamburger-icon">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        
-        <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">Əsas Səhifə</a></li>
-            <li><a href="login.html">Giriş / Qeydiyyat</a></li>
-            <li><a href="cart.html">Səbət</a></li>
-            <li><a href="contact.html">Əlaqə</a></li>
-            <li><a href="admin.html">Admin Panel</a></li>
-            <li><a href="topup.html">Balans Artır</a></li> 
-        </ul>
-    </nav>
-</header>
-
+        <nav>
+            <div class="logo">Oyun Mağazası</div>
+            <ul>
+                <li><a href="index.html">Əsas Səhifə</a></li>
+                <li><a href="login.html">Giriş / Qeydiyyat</a></li>
+                <li><a href="cart.html">Səbət</a></li>
+                <li><a href="contact.html">Əlaqə</a></li>
+                <li><a href="admin.html">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
-        <section class="logo-hero-section">
-            <img src="logo.png" alt="Sizin Loqonuz" class="main-page-logo">
-        </section>
-
-        <section class="banner-section small-banners">
-            <a href="topup.html" class="small-banner-item"> <img src="https://via.placeholder.com/600x200?text=BALANS+ARTIR" alt="Balans Artır">
-                <h3>Balans Artır</h3>
-            </a>
-            <a href="https://t.me/sizin_telegram_kanaliniz" target="_blank" class="small-banner-item"> <img src="https://via.placeholder.com/600x200?text=TELEGRAM+KANALI" alt="Telegram Kanalı">
-                <h3>Telegram Kanalı</h3>
-            </a>
-        </section>
-
-        ---
-
-        <section class="info-banner-top">
-            <h2>SEYIDOFF_SHOPP</h2>
-            <p>Sayt işləmir, sadəcə praktika üçün yaradılıb.🙏🏻<br>Sifariş üçün aşağıdakı linklərdən əlaqə saxlayın:</p>
-            <p>
-                <a href="https://www.instagram.com/seyidoff_shopp" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width:30px;height:30px;vertical-align:middle;margin-right:5px;"> @seyidoff_shopp
-                </a>
-                <br>
-                <a href="https://wa.me/994777696100" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:30px;height:30px;vertical-align:middle;margin-right:5px;"> +994 77 769 61 00
-                </a>
-            </p>
-        </section>
-
-        ---
-
-        <h1>Xidmətlərimiz</h1>
-        <section class="services-section">
-            <p>FREE FİRE DIAMOND,PUBG MOBİLE UC,TİKTOK JETON.Sürətli çatdırılma, 24/7 dəstək və s.</p>
-        </section>
-
-        <h2>Oyunlar</h2>
-        <section id="game-listing" class="game-grid">
-        </section>
+        <h1>Populyar Oyunlar</h1>
+        <div id="games-list" class="games-container">
+            <p>Oyunlar yüklənir...</p>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2025 Oyun Mağazası. Bütün hüquqlar qorunur.
-<a href="https://www.instagram.com/seyidoff_shopp" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width:30px;height:30px;vertical-align:middle;margin-right:5px;"> @seyidoff_shop
-<a href="https://wa.me/994777696100" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:30px;height:30px;vertical-align:middle;margin-right:5px;"> +994 77 769 61 00</p>
+        <p>&copy; 2025 Oyun Mağazası. Bütün hüquqlar qorunur.</p>
     </footer>
 
-    <script src="cart.js"></script>
-    <script src="script.js"></script>
+    <script src="games.js"></script>
 </body>
 </html>
