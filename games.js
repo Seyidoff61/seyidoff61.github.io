@@ -1,4 +1,8 @@
 // games.js
+alert('games.js yükləndi!'); // Bu sətri əlavə edin
+Document.addEventListener('DOMContentLoaded', async () => {
+    // ... qalan kod
+
 Document.addEventListener('DOMContentLoaded', async () => {
     const gamesContainer = document.getElementById('games-list');
 
