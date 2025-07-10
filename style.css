@@ -550,3 +550,41 @@ nav {
         text-align: center;
     }
 }
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seyidoff — Veb Xidmətləri</title>
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <a href="#home">Seyidoff</a> </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#home">Ana Səhifə</a></li>
+                <li><a href="#about">Haqqımızda</a></li>
+                <li><a href="#services">Xidmətlər</a></li>
+                <li><a href="#contact">Əlaqə</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu" id="hamburger-icon">
+            <i class="fas fa-bars"></i> </div>
+    </header>
+    <section id="home" class="welcome-section">
+        </section>
+
+    <section id="about" class="about-section">
+        </section>
+
+    <section id="services" class="services-section">
+        </section>
+
+    <section id="contact" class="contact-section">
+        </section>
+
+    <script src="script.js"></script> </body>
+</html>
