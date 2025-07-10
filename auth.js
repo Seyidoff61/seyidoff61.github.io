@@ -1,48 +1,107 @@
-document.addEventListener('DOMContentLoaded', () => {
+// auth.js
+Document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
     const registerForm = document.getElementById('register-form');
     const showRegisterLink = document.getElementById('show-register');
     const showLoginLink = document.getElementById('show-login');
 
-    // Formlar arasında keçid
-    showRegisterLink.addEventListener('click', (e) => {
-        e.preventDefault(); // Səhifənin yenilənməsinin qarşısını al
-        loginForm.style.display = 'none';
-        registerForm.style.display = 'block';
-    });
+    // Giriş formunu təqdim etmək
+    if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = loginForm['login-username'].value;
+            const password = loginForm['login-password'].value;
 
-    showLoginLink.addEventListener('click', (e) => {
-        e.preventDefault(); // Səhifənin yenilənməsinin qarşısını al
-        registerForm.style.display = 'none';
-        loginForm.style.display = 'block';
-    });
+            try {
+                const response = await fetch('http://127.0.0.1:5000/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
 
-    // Giriş formunun göndərilməsi (Hal-hazırda sadəcə mesaj verir)
-    loginForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // Formun standart göndərilməsini dayandır
-        const username = loginForm.querySelector('#login-username').value;
-        const password = loginForm.querySelector('#login-password').value;
+                const data = await response.json();
 
-        // Buraya real login məntiqi (serverə sorğu göndərmək, məlumatları yoxlamaq) gələcək
-        alert(`Giriş cəhdi: İstifadəçi Adı: ${username}, Şifrə: ${password}\n(Bu sadəcə demo mesajıdır)`);
-    });
+                if (response.ok) {
+                    alert(data.message || 'Giriş uğurlu!');
+                    // Giriş uğurlu olduqda ana səhifəyə yönləndir
+                    window.location.href = 'index.html';
+                } else {
+                    alert(data.message || 'Giriş uğursuz oldu. Zəhmət olmasa yenidən cəhd edin.');
+                    console.error('Giriş xətası:', data);
+                }
+            } catch (error) {
+                alert('Serverlə əlaqə qurularkən xəta baş verdi. Serverin işlək olduğundan əmin olun.');
+                console.error('API çağırışı zamanı xəta:', error);
+            }
+        });
+    }
 
-    // Qeydiyyat formunun göndərilməsi (Hal-hazırda sadəcə mesaj verir)
-    registerForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // Formun standart göndərilməsini dayandır
-        const username = registerForm.querySelector('#register-username').value;
-        const email = registerForm.querySelector('#register-email').value;
-        const password = registerForm.querySelector('#register-password').value;
-        const confirmPassword = registerForm.querySelector('#register-confirm-password').value;
+    // Qeydiyyat formunu təqdim etmək
+    if (registerForm) {
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = registerForm['register-username'].value;
+            const email = registerForm['register-email'].value;
+            const password = registerForm['register-password'].value;
+            const confirmPassword = registerForm['register-confirm-password'].value;
 
-        if (password !== confirmPassword) {
-            alert('Şifrələr uyğun gəlmir!');
-            return;
+            if (password !== confirmPassword) {
+                alert('Şifrələr uyğun gəlmir!');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://127.0.0.1:5000/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert(data.message || 'Qeydiyyat uğurlu oldu! İndi daxil ola bilərsiniz.');
+                    // Qeydiyyat uğurlu olduqda giriş formuna keç
+                    if (loginForm) { // loginForm mövcudluğunu yoxlayın
+                        loginForm.style.display = 'block';
+                    }
+                    registerForm.style.display = 'none';
+                } else {
+                    alert(data.message || 'Qeydiyyat uğursuz oldu. Zəhmət olmasa yenidən cəhd edin.');
+                    console.error('Qeydiyyat xətası:', data);
+                }
+            } catch (error) {
+                alert('Serverlə əlaqə qurularkən xəta baş verdi. Serverin işlək olduğundan əmin olun.');
+                console.error('API çağırışı zamanı xəta:', error);
+            }
+        });
+    }
+
+
+    // Formları dəyişdirmək (göstər/gizlət)
+    if (showRegisterLink && loginForm && registerForm) { // Bütün elementlərin mövcudluğunu yoxlayın
+        showRegisterLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'block';
+        });
+    }
+
+    if (showLoginLink && loginForm && registerForm) { // Bütün elementlərin mövcudluğunu yoxlayın
+        showLoginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginForm.style.display = 'block';
+            registerForm.style.display = 'none';
+        });
+    }
+
+    // Səhifə yüklənəndə formaların ilkin vəziyyətini təyin etmək
+    // Əmin olun ki, login.html-də register-form display: none olaraq qalır.
+    // auth.js faylı login.html səhifəsinə aiddir.
+    if (window.location.pathname.endsWith('login.html') || window.location.pathname.endsWith('/login')) {
+        if (loginForm && registerForm) {
+            loginForm.style.display = 'block';
+            registerForm.style.display = 'none';
         }
-
-        // Buraya real qeydiyyat məntiqi (serverə məlumat göndərmək, bazaya yazmaq) gələcək
-        alert(`Qeydiyyat cəhdi: İstifadəçi Adı: ${username}, E-poçt: ${email}, Şifrə: ${password}\n(Bu sadəcə demo mesajıdır)`);
-        loginForm.style.display = 'block';
-        registerForm.style.display = 'none';
-    });
+    }
 });
